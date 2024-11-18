@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <span className="text-xl font-bold text-white">CyberSide Studio</span>
@@ -42,24 +42,6 @@ export default function Footer() {
                 <span>123 Web Street, Digital City</span>
               </div>
             </div>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Newsletter</h3>
-            <p className="text-sm mb-4">Stay updated with our latest news and offers.</p>
-            <form className="space-y-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-indigo-500"
-              />
-              <button
-                type="submit"
-                className="w-full px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
 
