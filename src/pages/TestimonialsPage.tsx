@@ -6,7 +6,7 @@ const testimonials = [
     name: 'Sarah Johnson',
     role: 'CEO',
     company: 'TechStart Inc.',
-    content: 'CyberSide Studio's transformed our online presence completely. Their attention to detail and commitment to quality is unmatched.',
+    content: 'CyberSide Studio transformed our online presence completely. Their attention to detail and commitment to quality is unmatched.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&h=200'
   },
@@ -14,7 +14,7 @@ const testimonials = [
     name: 'Michael Chen',
     role: 'Marketing Director',
     company: 'Growth Solutions',
-    content: 'The team at CyberSide Studio delivered beyond our expectations. Our new website has significantly improved our conversion rates.',
+    content: 'The team at CyberSide Stuido delivered beyond our expectations. Our new website has significantly improved our conversion rates.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200'
   },
