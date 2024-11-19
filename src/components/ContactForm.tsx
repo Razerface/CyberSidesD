@@ -1,10 +1,34 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 
+const serviceOptions = [
+  {
+    value: 'small-business',
+    label: 'Small Business Ready Website',
+    description: 'Perfect for new businesses getting started online'
+  },
+  {
+    value: 'business-growth',
+    label: 'Business Growth SEO Bundle',
+    description: 'Boost your online visibility and traffic'
+  },
+  {
+    value: 'enterprise',
+    label: 'Enterprise Growth Bundle',
+    description: 'Comprehensive digital solutions for large organizations'
+  },
+  {
+    value: 'custom',
+    label: 'Custom Service Request',
+    description: 'Tell us about your specific needs'
+  }
+];
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    service: '',
     message: ''
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -27,7 +51,7 @@ export default function ContactForm() {
       }
 
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', service: '', message: '' });
       setTimeout(() => setStatus('idle'), 3000);
     } catch (error) {
       setStatus('error');
@@ -35,7 +59,7 @@ export default function ContactForm() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -72,6 +96,27 @@ export default function ContactForm() {
           required
           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
         />
+      </div>
+
+      <div>
+        <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
+          Service
+        </label>
+        <select
+          id="service"
+          name="service"
+          value={formData.service}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+        >
+          <option value="">Select a service</option>
+          {serviceOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label} - {option.description}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div>

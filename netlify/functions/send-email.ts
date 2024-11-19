@@ -7,9 +7,19 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_APP_PASSWORD, // Using Gmail App Password instead of regular password
+    pass: process.env.EMAIL_APP_PASSWORD,
   },
 });
+
+const getServiceLabel = (serviceValue: string): string => {
+  const services: Record<string, string> = {
+    'small-business': 'Small Business Ready Website',
+    'business-growth': 'Business Growth SEO Bundle',
+    'enterprise': 'Enterprise Growth Bundle',
+    'custom': 'Custom Service Request'
+  };
+  return services[serviceValue] || 'General Inquiry';
+};
 
 export const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -20,7 +30,7 @@ export const handler: Handler = async (event) => {
   }
 
   try {
-    const { name, email, message } = JSON.parse(event.body || '{}');
+    const { name, email, service, message } = JSON.parse(event.body || '{}');
 
     if (!name || !email || !message) {
       return {
@@ -29,11 +39,12 @@ export const handler: Handler = async (event) => {
       };
     }
 
+    const serviceLabel = getServiceLabel(service);
     const mailOptions = {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
-      subject: `New Contact Form Message from ${name}`,
-      text: `From: ${name} <${email}>\n\nMessage:\n${message}`,
+      subject: `New Inquiry: ${serviceLabel} - from ${name}`,
+      text: `From: ${name} <${email}>\nService: ${serviceLabel}\n\nMessage:\n${message}`,
       replyTo: email,
     };
 
