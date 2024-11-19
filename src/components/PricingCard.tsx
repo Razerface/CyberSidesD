@@ -10,6 +10,10 @@ interface PricingCardProps {
 }
 
 export default function PricingCard({ title, price, features, isPopular }: PricingCardProps) {
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className={`
       relative rounded-2xl p-8 
@@ -43,6 +47,7 @@ export default function PricingCard({ title, price, features, isPopular }: Prici
 
       <Link
         to="/contact"
+        onClick={handleClick}
         className={`w-full py-3 px-6 rounded-lg font-medium transition-colors block text-center
           ${isPopular 
             ? 'bg-white text-indigo-600 hover:bg-gray-100' 
