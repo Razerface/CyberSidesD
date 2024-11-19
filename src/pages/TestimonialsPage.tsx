@@ -14,7 +14,7 @@ const testimonials = [
     name: 'Michael Chen',
     role: 'Marketing Director',
     company: 'Growth Solutions',
-    content: 'The team at CyberSide Stuido delivered beyond our expectations. Our new website has significantly improved our conversion rates.',
+    content: 'The team at CyberSide Studio delivered beyond our expectations. Our new website has significantly improved our conversion rates.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200'
   },
