@@ -118,6 +118,10 @@ const services = [
 ];
 
 export default function HomePage() {
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -142,6 +146,7 @@ export default function HomePage() {
               </p>
               <Link 
                 to="/contact"
+                onClick={handleClick}
                 className="inline-block px-8 py-3 bg-white text-indigo-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
                 Get Started
@@ -189,6 +194,7 @@ export default function HomePage() {
           </p>
           <Link 
             to="/contact"
+            onClick={handleClick}
             className="inline-block px-8 py-3 bg-white text-indigo-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
             Contact Us Now
